@@ -33,7 +33,7 @@ class PerfilVoluntario(models.Model):
     nome_completo = models.CharField(max_length=150, null=True)
     cpf = models.CharField(max_length=14, verbose_name='CPF', null=True)
     data_nasc = models.DateField(verbose_name='Data de nascimento', null=True)
-    contato = models.CharField(max_length=11,help_text='Digite apenas números com o DDD', verbose_name="Tel contato", null=True)
+    contato = models.CharField(max_length=16,help_text='Digite apenas números com o DDD', verbose_name="Tel contato", null=True)
     cidade = models.CharField(max_length=50, help_text='Digite sua cidade e Estado, EX: Campinas-SP', null=True)
     nivel = models.CharField(max_length=30, choices=niveis, verbose_name='Nível', null=True)
     descricao = models.TextField(max_length=500, verbose_name="Descrição", help_text='Descreva um pouco da sua trajetória, as disciplinas que possui maior habilidade e como gostaria de ajudar nessa causa.', null=True, blank=True)
