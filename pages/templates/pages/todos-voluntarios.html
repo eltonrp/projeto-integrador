@@ -1,0 +1,39 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<h3>Ofertas de Reforço Registradas</h3>
+<!-- <a href="{% url 'cadastrar-voluntario' %}" class="btn btn-primary btn-sm">Adicionar Voluntário</a> -->
+<hr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Data do registro</th>
+            <th>Interação</th>
+        </tr>
+
+        {% for voluntario in object_list %}
+        <tr>
+            <td>{{ voluntario.nome }}</td>
+            <td>{{ voluntario.descricao }}</td>
+            <td>{{ voluntario.data }}</td>
+            <td>
+                {% if not user.is_authenticated %}
+                <a href="#" class="btn btn-warning btn-sm disabled" title="Editar">Interagir</a>
+            {% else %}
+                <a href="{% url 'mensagens-voluntario' voluntario.usuario.pk %}" class="btn btn-warning btn-sm" title="Editar">Interagir</a>
+            {% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum voluntário registrado</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+    {% endblock %}

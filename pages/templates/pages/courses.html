@@ -1,0 +1,75 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}
+    Atividades
+{% endblock %}
+
+{% block content %}
+
+<h3>Alunos Registrados</h3>
+<!-- <a href="{% url 'cadastrar-aluno' %}" class="btn btn-primary btn-sm">Adicionar Aluno</a> -->
+<hr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <!-- <th>Usuário</th> -->
+            <!-- <th>Opções</th> -->
+        </tr>
+
+        {% for aluno in object_list %}
+        <tr>
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.descricao }}</td>
+            <!-- <td>{{ aluno.usuario }}</td> -->
+            <!-- <td>
+                <a href="{% url 'editar-aluno' aluno.pk %}" class="btn btn-warning btn-sm" title="Editar">E</a>
+                <a href="{% url 'excluir-aluno' aluno.pk %}" class="btn btn-danger btn-sm" title="Excluir">X</a>
+                
+            </td> -->
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum aluno registrado</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+    
+{% endblock %}
+
+{% block conten2 %}
+
+<h3>Voluntários Registrados</h3>
+<!-- <a href="{% url 'cadastrar-voluntario' %}" class="btn btn-primary btn-sm">Adicionar Voluntário</a> -->
+<hr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <!-- <th>Usuário</th> -->
+            <!-- <th>Opções</th> -->
+        </tr>
+
+        {% for voluntario in object_list %}
+        <tr>
+            <td>{{ voluntario.nome }}</td>
+            <td>{{ voluntario.descricao }}</td>
+            <!-- <td>{{ voluntario.usuario }}</td> -->
+            <!-- <td>
+                <a href="{% url 'editar-voluntario' voluntario.pk %}" class="btn btn-warning btn-sm" title="Editar">E</a>
+                <a href="{% url 'excluir-voluntario' voluntario.pk %}" class="btn btn-danger btn-sm" title="Excluir">X</a>
+                
+            </td> -->
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum voluntário registrado</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

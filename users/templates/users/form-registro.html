@@ -1,0 +1,27 @@
+{% extends 'users/form-base.html' %}
+
+{% block title %}
+
+    {% if user.groups.all.0.name == "Interessado" %}
+
+        Registrar Dificuldade
+
+    {% else %}
+
+        Ofertar Reforço
+
+    {% endblock %}
+
+{% block h3 %}
+
+    {% if user.groups.all.0.name == "Interessado" %}
+
+        Registrar Dificuldade
+
+    {% else %}
+
+        Ofertar Reforço
+
+    {% endblock %}
+
+{% block botao %}Registrar{% endblock %}

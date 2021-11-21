@@ -1,0 +1,31 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}
+    Contato
+{% endblock %}
+
+{% block font %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha512-0S+nbAYis87iX26mmj/+fWt1MmaKCv80H+Mbo+Ne7ES4I6rxswpfnC6PxmLiw33Ywj2ghbtTw0FkLbMWqh4F7Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha512-Sr1M6mlMOXTKahO1wcUzFu/kAb3iZVaQWGvxOEePRm7c2NjGRZ7ckRT6218PaSXlz8eEoFpKkDVvl2rTqKrQLA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container col col-lg-10">
+    <p class="lead">Escolha uma forma de contato para mandar sua dúvida ou sugestão.</p>
+    <p class="lead"><strong>Contatos Ilustrativos.</strong></p>
+    <ul class="navbar-nav" style="font-size: x-large;">
+        <li>
+            <i class="fab fa-whatsapp"></i> (19) 9 9XXX-XXXX
+        </li>
+        <li>
+            <i class="fas fa-envelope"></i> contato@rov.com
+        </li>
+        <li>
+            <i class="fab fa-github"></i> github.com/usuario/pasta_do_projeto
+        </li>
+        <li>
+            <i class="fas fa-map-marker-alt"></i> Campinas-SP
+        </li>
+    </ul>   
+</div>
+{% endblock %}

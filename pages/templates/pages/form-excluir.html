@@ -1,0 +1,39 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Descadastrar
+{% endblock %}
+
+{% block content %}
+<div class="col-8">
+    <h3>Excluir Registros</h3>
+    
+    <p class="lead">
+        Confirme para excluir o registro definitivamente.
+    </p>
+    
+    <hr>
+    
+    <form action="" method="POST">
+        
+        <p class="lead">
+            Deseja excluir o registro: <strong>{{ object.nome }}: {{ object.assunto }}, criado em {{ object.data }}</strong>?
+        </p>
+        <p class="lead">Criado por: <strong>{{ user.perfilaluno.nome_completo }}</strong></p>
+        
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        
+        <button type="submit" class="btn btn-danger mb-3">Excluir</button>
+        
+    </form>
+    {% if user.groups.all.0.name == "Interessado" %}
+    <a href="{% url 'listar-alunos' %}">Voltar</a>
+    {% else %}
+    <a href="{% url 'listar-voluntarios' %}">Voltar</a>
+    {% endif %}
+</div>
+{% endblock %}

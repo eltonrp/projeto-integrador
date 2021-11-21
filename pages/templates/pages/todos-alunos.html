@@ -1,0 +1,45 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}
+    Atividades
+{% endblock %}
+
+{% block content %}
+
+<h3>Alunos Registrados</h3>
+<p class="lead">Necessita login para interação</p>
+<!-- <a href="{% url 'cadastrar-aluno' %}" class="btn btn-primary btn-sm">Adicionar Aluno</a> -->
+<hr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Data do registro</th>
+            <th>Interação</th>
+            <!-- <th>Opções</th> -->
+        </tr>
+
+        {% for aluno in object_list %}
+        <tr>
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.descricao }}</td>
+            <td>{{ aluno.data }}</td>
+            <td>
+            {% if not user.is_authenticated %}
+                <a href="#" class="btn btn-warning btn-sm disabled" title="Editar">Interagir</a>
+            {% else %}
+                <a href="{% url 'mensagens-aluno' aluno.usuario.pk %}" class="btn btn-warning btn-sm" title="Editar">Interagir</a>
+            {% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum aluno registrado</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+    
+{% endblock %}
+

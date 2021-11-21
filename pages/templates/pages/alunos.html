@@ -1,0 +1,45 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<h3>Bem Vindo {{ user }} - Dificuldades Registradas</h3>
+{% if user.perfilaluno.cpf is None %}
+<p>Voce ainda não preencheu seus dados cadastrais. Voltar para a página de cadastro</p>
+<a href="{% url 'atualizar-aluno' %}" class="btn btn-warning btn-sm">Finalizar Perfil</a>
+{% else %}
+<a href="{% url 'cadastrar-aluno' %}" class="btn btn-primary btn-sm">Adicionar Dificuldade</a>
+<hr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <th>Área</th>
+            <th>Assunto</th>
+            <th>Descrição</th>
+            <th>Data</th>
+            <th>Opções</th>
+        </tr>
+
+        {% for aluno in object_list %}
+        <tr>
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.area }}</td>
+            <td>{{ aluno.assunto }}</td>
+            <td>{{ aluno.descricao }}</td>
+            <td>{{ aluno.data }}</td>
+            <td>
+                <a href="{% url 'editar-aluno' aluno.pk %}" class="btn btn-warning btn-sm" title="Editar">E</a>
+                <a href="{% url 'excluir-aluno' aluno.pk %}" class="btn btn-danger btn-sm" title="Excluir">X</a>
+                
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhuma dificuldade registrada</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+    {% endif %}
+    {% endblock %}
