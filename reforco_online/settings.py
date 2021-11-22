@@ -14,6 +14,8 @@ from pathlib import Path
 
 import django_heroku
 
+from . import funcao
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&9(6d#ei!*$o@k(l#6h4q+p)=hch4!v4&@bzz@t&01d&30o5*6'
+SECRET_KEY = 'django-insecure' + funcao.decript([280035, 236474, 354711, 248920, 336042, 622300, 217805, 628523, 653415, 205359, 261366, 224028, 690753, 398272, 665861, 248920, 672084, 217805, 336042, 647192, 323596, 703199, 267589, 696976, 255143, 379603, 647192, 616077, 647192, 323596, 205359, 734314, 323596, 236474, 398272, 609854, 759206, 759206, 398272, 721868, 236474, 298704, 304927, 622300, 236474, 317373, 298704, 690753, 329819, 261366, 336042])
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
