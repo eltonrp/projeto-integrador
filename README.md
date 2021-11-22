@@ -8,4 +8,4 @@ Nesse projeto foram utilizadas as seguintes tecnologias:
 * Bootstrap - Framework front-end HTML e CSS
 * Git e Github - Ferramentas para controle de versionamento
 * Heroku - Plataforma *cloud computing* para *deploy* da aplicação
-    + [Link da Aplicação no Heroku](https://pi-rov.herokuapp.com/){:target="_blank"}
+    + [Link da Aplicação no Heroku](https://pi-rov.herokuapp.com/ target="_blank")
